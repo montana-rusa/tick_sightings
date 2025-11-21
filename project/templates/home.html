@@ -11,15 +11,12 @@
 
 
 <div class='section one' id="filter">
+    <p>hello</p>
 
-    <label for="cars">Choose a car:</label>
-    <select name="cars" id="cars">
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="mercedes">Mercedes</option>
-    <option value="audi">Audi</option>
-    </select>
- 
+    <div style="height: 50vh; width: 50%;">
+        <canvas id="myChart"></canvas>
+    </div>
+
     <label for="cars">Choose a car:</label>
     <select name="cars" id="cars">
     <option value="volvo">Volvo</option>
@@ -32,15 +29,16 @@
 
 
 <div class='section two' id="graphs">
-     <div style="height: 50vh; width: 50%;">
-        <canvas id="myChart"></canvas>
-    </div>
+
      <div style="height: 50vh; width: 50%;">
         <canvas id="myChart2"></canvas>
     </div>
+
 </div>
 
-<div class='section three' id="about"></div>
+<div class='section three' id="about">
+
+</div>
     
   <script>
         const labels = JSON.parse('{{ labels | tojson | safe }}');
@@ -67,10 +65,11 @@
             config
         );
 
-         const myChart2 = new Chart(
+        const myChart2 = new Chart(
             document.getElementById('myChart2'),
             config
         );
+        
     </script>
 
 </body>

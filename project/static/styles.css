@@ -1,6 +1,6 @@
 :root {
-    --darkBlue: #0077b6;
-    --lightBlue: #90e0ef;
+    --darkBlue: #90e0ef;
+    --lightBlue: #caf0f8;
 }
 
 body {
@@ -15,5 +15,6 @@ body {
     align-items: center;
 }
 
-.one, .three {background-color: var(--darkBlue) ; flex:1;}
+.one {background-color: var(--darkBlue) ; flex:2;}
 .two {background-color: var(--lightBlue); flex:2;}
+.three {background-color: var(--darkBlue) ; flex:1;}
