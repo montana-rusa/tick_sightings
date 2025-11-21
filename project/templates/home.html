@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="{{ url_for('static', filename='chart.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>Document</title>
+    </head>
+<body>
 
 
 <div class='section one' id="filter">
@@ -30,12 +32,46 @@
 
 
 <div class='section two' id="graphs">
+     <div style="height: 50vh; width: 50%;">
+        <canvas id="myChart"></canvas>
+    </div>
+     <div style="height: 50vh; width: 50%;">
+        <canvas id="myChart2"></canvas>
+    </div>
 </div>
 
 <div class='section three' id="about"></div>
-
-</head>
-<body>
     
+  <script>
+        const labels = JSON.parse('{{ labels | tojson | safe }}');
+        const chartData = JSON.parse('{{ data | tojson | safe }}');
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'Sales',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: chartData,
+            }]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: { maintainAspectRatio: false }
+        };
+
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+
+         const myChart2 = new Chart(
+            document.getElementById('myChart2'),
+            config
+        );
+    </script>
+
 </body>
 </html>
