@@ -25,15 +25,17 @@
   <div>
     <h1>Filter data</h1>
 
-    <p>From </p>
-    <input type="date" 
-               id="start">
-    <p>To</p>
-        <input type="date" 
-                id="end">
-    <p></p>
-    <button>Change time period</button>
-   
+    <form action="/submit" method="POST">
+        <label for="start">From </label>
+        <br>
+        <input type="date" id="start" name="start" required>
+        <br>
+        <label for="end">To </label>
+        <br>
+        <input type="date" id="end" name="end" required>
+        <br>
+        <button type="submit">Change time period</button>
+   </form>
   </div>
 
   <div>
@@ -71,7 +73,7 @@ new Chart(ctx, {
       legend: {display: false},
       title: {
         display: true,
-        text: "World Wine Production 2018",
+        text: "Sightings per location",
         font: {size: 16}
       }
     }

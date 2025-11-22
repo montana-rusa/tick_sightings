@@ -10,30 +10,26 @@ df = pd.read_csv('data.csv')
 #a line showing sightings per month over time
 df['date'] = df['date'].str[:10]
 df['date'] = pd.to_datetime(df['date']) 
-print(df)
+#print(df)
 
 
-def filter_by_time(time, df=df):
-    today = pd.to_datetime("today")
+def filter_by_time(start = False, end = False, df=df):
 
-    if time == "week":
-        cutoff = today - pd.DateOffset(weeks = 1)
-    elif time == "month":
-        cutoff = today - pd.DateOffset(months = 1)
-    elif time == "year":
-        cutoff = today - pd.DateOffset(years = 1)
-    else: cutoff = False
-
+    if start != False:
+        regional = df[(df['date'] > start) & (df['date'] < end)]
+    else:
+        regional = df
+   
     #print(cutoff.date())
     regional = df.groupby(['location']).count()
-    print(regional)
+    regional = regional.sort_values(by="id", ascending=False)
+    #print(regional)
+
+
 
     x = regional.index.to_list()
     y = regional['id'].to_list()
 
     return (x, y)
-
-filter_by_time("year", df)
-
 
 
