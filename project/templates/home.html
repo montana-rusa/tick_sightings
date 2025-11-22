@@ -7,17 +7,85 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>Document</title>
     </head>
+
 <body>
-<p>hello</p>
-
-<div class='section one' id="filter">
+    
+<div id="about">
+    <h1>About</h1>
+    <p>This system allows users to track and filter tick sightings across the UK<p>
 </div>
 
-<div class='section two' id="graphs">
-</div>
 
-<div class='section three' id="about">
-</div>
+<div class="container">
+
+  <div>
+    <canvas id="myChart" style="height:25%; width:25%"></canvas>
+  </div>
+
+  <div>2
+  </div>
+
+  <div>
+    <canvas id="myChart2" style="height:25%; width:25%"></canvas>
+  </div>
+
+  <div>4
+  </div>
+
+<!---below is the code for an example graph for testing purposes --->
+<script>
+const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+const yValues = [55, 49, 44, 24, 15];
+const barColors = ["red", "green","blue","orange","brown"];
+
+const ctx = document.getElementById('myChart');
+
+new Chart(ctx, {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    plugins: {
+      legend: {display: false},
+      title: {
+        display: true,
+        text: "World Wine Production 2018",
+        font: {size: 16}
+      }
+    }
+  }
+});
+
+
+const ctz = document.getElementById('myChart2');
+
+new Chart(ctz, {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    plugins: {
+      legend: {display: false},
+      title: {
+        display: true,
+        text: "World Wine Production 2018",
+        font: {size: 16}
+      }
+    }
+  }
+});
+
+</script>
 
 </body>
 </html>
