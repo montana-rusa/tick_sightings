@@ -10,7 +10,7 @@
 
 <body>
     
-<div id="about">
+<div id="about" >
     <h1>About</h1>
     <p>This system allows users to track and filter tick sightings across the UK<p>
 </div>
@@ -22,21 +22,38 @@
     <canvas id="myChart" style="height:25%; width:25%"></canvas>
   </div>
 
-  <div>2
+  <div>
+    <h1>Filter data</h1>
+
+    <p>From </p>
+    <input type="date" 
+               id="start">
+    <p>To</p>
+        <input type="date" 
+                id="end">
+    <p></p>
+    <button>Change time period</button>
+   
   </div>
 
   <div>
     <canvas id="myChart2" style="height:25%; width:25%"></canvas>
   </div>
 
-  <div>4
+  <div>
+    <h1>Filter data</h1>
   </div>
 
 <!---below is the code for an example graph for testing purposes --->
 <script>
-const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+
+/* const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
 const yValues = [55, 49, 44, 24, 15];
-const barColors = ["red", "green","blue","orange","brown"];
+const barColors = ["red", "green","blue","orange","brown"]; */
+
+const xValues = JSON.parse('{{ xValues | tojson | safe }}');
+const yValues = JSON.parse('{{ yValues | tojson | safe }}'); 
+const barColors = JSON.parse('{{ barColors | tojson | safe }}');
 
 const ctx = document.getElementById('myChart');
 

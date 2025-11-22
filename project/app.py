@@ -5,10 +5,12 @@ app = Flask(__name__)
 @app.route("/")
 def home():
 
-    labels = ['January', 'February', 'March', 'April', 'May', 'June']
-    data = [0, 10, 15, 8, 22, 18, 25]
+    xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+    yValues = [55, 49, 44, 24, 15];
+    barColors = ["red", "green","blue","orange","brown"];
 
-    return render_template('home.html')
+    return render_template('home.html', xValues=xValues, yValues=yValues, barColors=barColors)
+
 if __name__ == '__main__':
     app.run(debug=True)
 
