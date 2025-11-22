@@ -19,9 +19,11 @@ def filter_by_time(start = False, end = False, df=df):
         regional = df[(df['date'] > start) & (df['date'] < end)]
     else:
         regional = df
+
+    
    
     #print(cutoff.date())
-    regional = df.groupby(['location']).count()
+    regional = regional.groupby(['location']).count()
     regional = regional.sort_values(by="id", ascending=False)
     #print(regional)
 
@@ -31,5 +33,4 @@ def filter_by_time(start = False, end = False, df=df):
     y = regional['id'].to_list()
 
     return (x, y)
-
 

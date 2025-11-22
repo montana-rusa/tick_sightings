@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import analysis
 import pandas as pd
 
@@ -14,6 +14,9 @@ def home():
 
 @app.route("/submit", methods =["GET", "POST"])
 def submit():
+
+    if request.method == "GET":
+        return redirect("/")
 
     barColors = ["red", "green","blue","orange","brown"];
 
