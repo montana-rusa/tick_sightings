@@ -13,7 +13,7 @@ df['date'] = pd.to_datetime(df['date'])
 print(df)
 
 
-def filter_by_time(time, df):
+def filter_by_time(time, df=df):
     today = pd.to_datetime("today")
 
     if time == "week":
@@ -25,7 +25,15 @@ def filter_by_time(time, df):
     else: cutoff = False
 
     #print(cutoff.date())
-    df = df[df['date'] > cutoff]
-    print(df)
+    regional = df.groupby(['location']).count()
+    print(regional)
+
+    x = regional.index.to_list()
+    y = regional['id'].to_list()
+
+    return (x, y)
 
 filter_by_time("year", df)
+
+
+
