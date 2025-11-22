@@ -12,7 +12,7 @@
     
 <div id="about" >
     <h1>About</h1>
-    <p>This system allows users to track and filter tick sightings across the UK<p>
+    <p>This system allows users to track and filter tick sightings across the UK between 2012 and 2024<p>
 </div>
 
 
@@ -25,7 +25,7 @@
   <div>
     <h1>Filter data</h1>
 
-    <form action="/submit" method="POST">
+    <form action="/submit1" method="POST">
         <label for="start">From </label>
         <br>
         <input type="date" id="start" name="start" required>
@@ -80,25 +80,30 @@ new Chart(ctx, {
   }
 });
 
+const xValues2 = JSON.parse('{{ xValues2 | tojson | safe }}');
+const yValues2 = JSON.parse('{{ yValues2 | tojson | safe }}'); 
 
 const ctz = document.getElementById('myChart2');
 
 new Chart(ctz, {
-  type: "bar",
+  type: "line",
   data: {
-    labels: xValues,
+    labels: xValues2,
     datasets: [{
-      backgroundColor: barColors,
-      data: yValues
+      fill: false,
+      lineTension: 0,
+      backgroundColor: "rgba(0,0,255,1.0)",
+      borderColor: "rgba(0,0,255,0.1)",
+      data: yValues2
     }]
   },
   options: {
     plugins: {
-      legend: {display: false},
+      legend: {display:false},
       title: {
         display: true,
-        text: "World Wine Production 2018",
-        font: {size: 16}
+        text: "Sightings over time",
+        font: {size:16}
       }
     }
   }
