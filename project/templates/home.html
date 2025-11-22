@@ -8,69 +8,16 @@
     <title>Document</title>
     </head>
 <body>
-
+<p>hello</p>
 
 <div class='section one' id="filter">
-    <p>hello</p>
-
-    <div style="height: 50vh; width: 50%;">
-        <canvas id="myChart"></canvas>
-    </div>
-
-    <label for="cars">Choose a car:</label>
-    <select name="cars" id="cars">
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="mercedes">Mercedes</option>
-    <option value="audi">Audi</option>
-    </select>
-
 </div>
 
-
 <div class='section two' id="graphs">
-
-     <div style="height: 50vh; width: 50%;">
-        <canvas id="myChart2"></canvas>
-    </div>
-
 </div>
 
 <div class='section three' id="about">
-
 </div>
-    
-  <script>
-        const labels = JSON.parse('{{ labels | tojson | safe }}');
-        const chartData = JSON.parse('{{ data | tojson | safe }}');
-
-        const data = {
-            labels: labels,
-            datasets: [{
-                label: 'Sales',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: chartData,
-            }]
-        };
-
-        const config = {
-            type: 'line',
-            data: data,
-            options: { maintainAspectRatio: false }
-        };
-
-        const myChart = new Chart(
-            document.getElementById('myChart'),
-            config
-        );
-
-        const myChart2 = new Chart(
-            document.getElementById('myChart2'),
-            config
-        );
-        
-    </script>
 
 </body>
 </html>

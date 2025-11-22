@@ -8,7 +8,7 @@ def home():
     labels = ['January', 'February', 'March', 'April', 'May', 'June']
     data = [0, 10, 15, 8, 22, 18, 25]
 
-    return render_template('home.html', labels=labels, data=data)
+    return render_template('home.html')
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
 
