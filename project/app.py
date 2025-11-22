@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import analysis
-import pandas as pd
+import pandas as pd#
+import os
 
 app = Flask(__name__)
 
@@ -51,5 +52,7 @@ def submit2():
     return render_template('home.html', xValues=xValues, yValues=yValues, barColors=barColors, xValues2 = xValues2, yValues2 = yValues2)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000)) 
+    app.run(host="0.0.0.0", port=port)
+    #app.run(debug=True)
 
